@@ -20,7 +20,6 @@ import com.titan.modele.Metier;
 
 import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "entreprise")
 @EntityListeners(AuditingEntityListener.class)
@@ -38,4 +37,30 @@ public class EntrepriseDaoImpl implements Serializable{
     @ManyToOne  
     @JoinColumn( name="id_metier" )
     private Metier metier;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Metier getMetier() {
+		return metier;
+	}
+
+	public void setMetier(Metier metier) {
+		this.metier = metier;
+	}
+    
+    
 }
