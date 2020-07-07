@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.titan.dao.MetierDao;
-import com.titan.exception.MetierException;
+import com.titan.exception.ApiNotFoundException;
 import com.titan.modele.Metier;
 import com.titan.service.MetierService;
 
@@ -24,7 +24,7 @@ public class MetierServiceImpl implements MetierService {
 	
 	@Override
 	public Metier afficherUnMetier(Integer id) {
-		return metierDao.findById(id).orElseThrow(() -> new MetierException("metier", "id", id));
+		return metierDao.findById(id).orElseThrow(() -> new ApiNotFoundException("metier", "id", id));
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public class MetierServiceImpl implements MetierService {
 	@Override 
 	public Metier modifierMetier(Integer id, Metier metierDetail) {
 		Metier metier = metierDao.findById(id)
-	            .orElseThrow(() -> new MetierException("metier", "id", id));
+	            .orElseThrow(() -> new ApiNotFoundException("metier", "id", id));
 		metier.setLibelle(metierDetail.getLibelle());
 
 		Metier modifMetier = metierDao.save(metier);
@@ -45,7 +45,7 @@ public class MetierServiceImpl implements MetierService {
 	@Override
 	public ResponseEntity<?> suppressionMetier(Integer id){
 		Metier metier = metierDao.findById(id)
-	            .orElseThrow(() -> new MetierException("libelle", "id", id));
+	            .orElseThrow(() -> new ApiNotFoundException("metier", "id", id));
 		metierDao.delete(metier);
 
 	    return ResponseEntity.ok().build();

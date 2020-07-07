@@ -1,5 +1,6 @@
 package com.titan.modele;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -27,11 +28,11 @@ import lombok.ToString;
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
 	allowGetters = true)
-public class Contrat {
+public class Contrat implements Serializable{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	@NotNull
 	private String nom;
 	@NotNull
@@ -56,7 +57,12 @@ public class Contrat {
     @JoinColumn( name="id_metier" )
 	private Metier metier;
 
-	public Contrat(Long id, String nom, Float mensualite, Date dateDebutContrat, Long duree, String preavis,
+    
+	public Contrat() {
+		super();
+	}
+
+	public Contrat(Integer id, String nom, Float mensualite, Date dateDebutContrat, Long duree, String preavis,
 			String commentaire, Long tel_entreprise, Entreprise entreprise, Utilisateur utilisateur, Metier metier) {
 		super();
 		this.id = id;
@@ -72,11 +78,11 @@ public class Contrat {
 		this.metier = metier;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

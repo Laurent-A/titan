@@ -1,5 +1,7 @@
 package com.titan.modele;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -19,11 +21,11 @@ import lombok.Data;
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
         allowGetters = true)
-public class Utilisateur {
+public class Utilisateur implements Serializable{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	@NotNull
 	private String pseudo;
 	private String prenom;
@@ -35,7 +37,7 @@ public class Utilisateur {
 		super();
 	}
 
-	public Utilisateur(Long id, String pseudo, String prenom, String mail, Long tel) {
+	public Utilisateur(Integer id, String pseudo, String prenom, String mail, Long tel) {
 		super();
 		this.id = id;
 		this.pseudo = pseudo;
@@ -44,11 +46,11 @@ public class Utilisateur {
 		this.tel = tel;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

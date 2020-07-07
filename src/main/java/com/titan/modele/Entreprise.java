@@ -1,5 +1,7 @@
 package com.titan.modele;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -21,7 +23,10 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "entreprise")
-public class Entreprise {
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
+        allowGetters = true)
+public class Entreprise implements Serializable{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

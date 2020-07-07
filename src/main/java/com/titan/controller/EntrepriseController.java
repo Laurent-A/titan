@@ -49,8 +49,8 @@ public class EntrepriseController {
 		return entrepriseService.suppressionEntreprise(id);
 	}
 	
-	@GetMapping(value="/entreprise/telephonie/{id}")
-	public List<Entreprise> entrepriseTelephonie(@PathVariable(value = "id") Integer id_metier){
+	@GetMapping(value="/entreprise/metier/{id}")
+	public List<Entreprise> entrepriseMetier(@PathVariable(value = "id") Integer id_metier){
 		return this.entrepriseService.entrepriseParMetier(id_metier);
 	}
 }
