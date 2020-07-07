@@ -14,7 +14,7 @@ public class Metier {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	@NotNull
 	private String libelle;
 	
@@ -24,19 +24,19 @@ public class Metier {
 	}
 
 
-	public Metier(Long id, String libelle) {
+	public Metier(Integer id, String libelle) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
 	}
 
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -25,7 +25,7 @@ public class Entreprise {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	@NotNull
 	private String nom;
 	
@@ -39,18 +39,18 @@ public class Entreprise {
 		super();
 	}
 
-	public Entreprise(Long id, String nom, Metier metier) {
+	public Entreprise(Integer id, String nom, Metier metier) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.metier = metier;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
