@@ -33,22 +33,15 @@ public class Entreprise implements Serializable{
 	private Integer id;
 	@NotNull
 	private String nom;
-	
-    @ManyToOne  
-    @JoinColumn( name="id_metier" )
-	private Metier metier;
-    
-    
 
 	public Entreprise() {
 		super();
 	}
 
-	public Entreprise(Integer id, String nom, Metier metier) {
+	public Entreprise(Integer id, String nom) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		this.metier = metier;
 	}
 
 	public Integer getId() {
@@ -67,17 +60,9 @@ public class Entreprise implements Serializable{
 		this.nom = nom;
 	}
 
-	public Metier getMetier() {
-		return metier;
-	}
-
-	public void setMetier(Metier metier) {
-		this.metier = metier;
-	}
-
 	@Override
 	public String toString() {
-		return "Entreprise [id=" + id + ", nom=" + nom + ", metier=" + metier + "]";
+		return "Entreprise [id=" + id + ", nom=" + nom + ", metier=" + "]";
 	}
     
     

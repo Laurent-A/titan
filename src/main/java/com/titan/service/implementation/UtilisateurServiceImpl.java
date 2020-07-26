@@ -48,12 +48,12 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	}
 	
 	@Override
-	public ResponseEntity<?> suppressionUtilisateur( Integer id){
+	public void suppressionUtilisateur( Integer id){
 		Utilisateur utilisateur = utilisateurDao.findById(id)
 	            .orElseThrow(() -> new ApiNotFoundException("utilisateur", "id", id));
 		utilisateurDao.delete(utilisateur);
 
-	    return ResponseEntity.ok().build();
+	    
 	}
 	
 }

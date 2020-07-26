@@ -43,7 +43,7 @@ public class Contrat implements Serializable{
 	private Long duree;
 	private String preavis;
 	private String commentaire;
-	private Long tel_entreprise;
+	private String tel_entreprise;
 	
     @ManyToOne  
     @JoinColumn( name="id_entreprise" )
@@ -63,7 +63,7 @@ public class Contrat implements Serializable{
 	}
 
 	public Contrat(Integer id, String nom, Float mensualite, Date dateDebutContrat, Long duree, String preavis,
-			String commentaire, Long tel_entreprise, Entreprise entreprise, Utilisateur utilisateur, Metier metier) {
+			String commentaire, String tel_entreprise, Entreprise entreprise, Utilisateur utilisateur, Metier metier) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -134,11 +134,11 @@ public class Contrat implements Serializable{
 		this.commentaire = commentaire;
 	}
 
-	public Long getTel_entreprise() {
+	public String getTel_entreprise() {
 		return tel_entreprise;
 	}
 
-	public void setTel_entreprise(Long tel_entreprise) {
+	public void setTel_entreprise(String tel_entreprise) {
 		this.tel_entreprise = tel_entreprise;
 	}
 

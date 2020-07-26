@@ -43,11 +43,11 @@ public class MetierServiceImpl implements MetierService {
 	}
 	
 	@Override
-	public ResponseEntity<?> suppressionMetier(Integer id){
+	public void suppressionMetier(Integer id){
 		Metier metier = metierDao.findById(id)
 	            .orElseThrow(() -> new ApiNotFoundException("metier", "id", id));
 		metierDao.delete(metier);
 
-	    return ResponseEntity.ok().build();
+	    
 	}
 }

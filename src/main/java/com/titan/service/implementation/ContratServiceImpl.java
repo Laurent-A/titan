@@ -54,11 +54,9 @@ public class ContratServiceImpl implements ContratService{
 	}
 	
 	@Override
-	public ResponseEntity<?> suppressionContrat( Integer id){
+	public void suppressionContrat( Integer id){
 		Contrat contrat = contratDao.findById(id)
 	            .orElseThrow(() -> new ApiNotFoundException("contrat", "id", id));
 		contratDao.delete(contrat);
-
-	    return ResponseEntity.ok().build();
 	}
 }

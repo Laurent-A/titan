@@ -31,13 +31,13 @@ public class Utilisateur implements Serializable{
 	private String prenom;
 	@NotNull
 	private String mail;
-	private Long tel;
+	private String tel;
 	
 	public Utilisateur() {
 		super();
 	}
 
-	public Utilisateur(Integer id, String pseudo, String prenom, String mail, Long tel) {
+	public Utilisateur(Integer id, String pseudo, String prenom, String mail, String tel) {
 		super();
 		this.id = id;
 		this.pseudo = pseudo;
@@ -78,11 +78,11 @@ public class Utilisateur implements Serializable{
 		this.mail = mail;
 	}
 
-	public Long getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(Long tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 

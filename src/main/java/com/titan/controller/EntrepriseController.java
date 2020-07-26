@@ -34,19 +34,20 @@ public class EntrepriseController {
 		return entrepriseService.afficherUneEntreprise(id);
 	}
 	
-	@PostMapping("/entreprise/ajouter")
+	@PostMapping("/entreprise")
 	public Entreprise creerUneEntreprise(@RequestBody Entreprise entreprise) {
 	    return entrepriseService.creerUneEntreprise(entreprise);
 	}
 	
-	@PutMapping("/entreprise/modifier/{id}")
+	@PutMapping("/entreprise/{id}")
 	public Entreprise modifierEntreprise(@PathVariable(value = "id") Integer id, @RequestBody Entreprise entrepriseDetails) {
 	    return entrepriseService.modifierUneEntreprise(id, entrepriseDetails);
 	}
 	
-	@DeleteMapping("/entreprise/supprimer/{id}")
+	@DeleteMapping("/entreprise/{id}")
 	public ResponseEntity<?> suppressionEntreprise(@PathVariable(value = "id") Integer id) {
-		return entrepriseService.suppressionEntreprise(id);
+		entrepriseService.suppressionEntreprise(id);
+		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping(value="/entreprise/metier/{id}")

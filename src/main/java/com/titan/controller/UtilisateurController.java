@@ -34,18 +34,19 @@ public class UtilisateurController {
 		return utilisateurService.afficherUnUtilisateur(id);
 	}
 	
-	@PostMapping("/utilisateur/ajouter")
+	@PostMapping("/utilisateur")
 	public Utilisateur creerUnUtilisateur(@RequestBody Utilisateur utilisateur) {
 	    return utilisateurService.creerUnUtilisateur(utilisateur);
 	}
 	
-	@PutMapping("/utilisateur/modifier/{id}")
+	@PutMapping("/utilisateur/{id}")
 	public Utilisateur modifierUtilisateur(@PathVariable(value = "id") Integer id, @RequestBody Utilisateur utilisateurDetails) {
 	    return utilisateurService.modifierUnUtilisateur(id, utilisateurDetails);
 	}
 	
-	@DeleteMapping("/utilisateur/supprimer/{id}")
+	@DeleteMapping("/utilisateur/{id}")
 	public ResponseEntity<?> suppressionUtilisateur(@PathVariable(value = "id") Integer id) {
-		return utilisateurService.suppressionUtilisateur(id);
+		utilisateurService.suppressionUtilisateur(id);
+		return ResponseEntity.ok().build();
 	}
 }

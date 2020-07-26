@@ -41,19 +41,17 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 	            .orElseThrow(() -> new ApiNotFoundException("enterprise", "id", id));
 
 		entreprise.setNom(entrepriseDetails.getNom());
-		entreprise.setMetier(entrepriseDetails.getMetier());
 
 		Entreprise modifEntreprise = entrepriseDao.save(entreprise);
 	    return modifEntreprise;
 	}
 	
 	@Override
-	public ResponseEntity<?> suppressionEntreprise( Integer id){
+	public void suppressionEntreprise( Integer id){
 		Entreprise entreprise = entrepriseDao.findById(id)
 	            .orElseThrow(() -> new ApiNotFoundException("enterprise", "id", id));
 		entrepriseDao.delete(entreprise);
 
-	    return ResponseEntity.ok().build();
 	}
 	
 	// entreprise par domaine de metier

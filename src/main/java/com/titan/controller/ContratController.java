@@ -33,19 +33,20 @@ public class ContratController {
 		return contratService.afficherUnContrat(id);
 	}
 	
-	@PostMapping("/contrat/ajouter")
+	@PostMapping("/contrat")
 	public Contrat creerUnContrat(@RequestBody Contrat contrat) {
 	    return contratService.creerUnContrat(contrat);
 	}
 	
-	@PutMapping("/contrat/modifier/{id}")
+	@PutMapping("/contrat/{id}")
 	public Contrat modifierContrat(@PathVariable(value = "id") Integer id, @RequestBody Contrat contratDetails) {
 	    return contratService.modifierUnContrat(id, contratDetails);
 	}
 	
-	@DeleteMapping("/contrat/supprimer/{id}")
+	@DeleteMapping("/contrat/{id}")
 	public ResponseEntity<?> suppressionContrat(@PathVariable(value = "id") Integer id) {
-		return contratService.suppressionContrat(id);
+		contratService.suppressionContrat(id);
+		return ResponseEntity.ok().build();
 	}
 
 }

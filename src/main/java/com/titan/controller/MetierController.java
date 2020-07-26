@@ -36,19 +36,20 @@ public class MetierController {
 		return metierService.afficherUnMetier(id);
 	}
 	
-	@PostMapping("/metier/ajouter")
+	@PostMapping("/metier")
 	public Metier creerUnMetier(@RequestBody Metier metier) {
 	    return metierService.creerUnMetier(metier);
 	}
 	
-	@PutMapping("/metier/modifier/{id}")
+	@PutMapping("/metier/{id}")
 	public Metier modifierMetier(@PathVariable(value = "id") Integer id, @RequestBody Metier metierDetails) {
 	    return metierService.modifierMetier(id, metierDetails);
 	}
 	
-	@DeleteMapping("/metier/supprimer/{id}")
+	@DeleteMapping("/metier/{id}")
 	public ResponseEntity<?> suppressionMetier(@PathVariable(value = "id") Integer id) {
-		return metierService.suppressionMetier(id);
+		metierService.suppressionMetier(id);
+		return ResponseEntity.ok().build();
 	}
 
 }
